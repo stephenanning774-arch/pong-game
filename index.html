@@ -8,11 +8,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎮 PONG GAME</h1>
+        <div class="header">
+            <h1>🎮 PONG GAME</h1>
+            <div class="top-controls">
+                <div class="theme-selector">
+                    <label for="theme">Theme:</label>
+                    <select id="theme">
+                        <option value="dark">🌙 Dark</option>
+                        <option value="neon">⚡ Neon</option>
+                        <option value="retro">📺 Retro</option>
+                        <option value="ocean">🌊 Ocean</option>
+                    </select>
+                </div>
+                <div class="mode-selector">
+                    <label for="gameMode">Mode:</label>
+                    <select id="gameMode">
+                        <option value="single">🤖 Single Player</option>
+                        <option value="multiplayer">👥 Two Player</option>
+                    </select>
+                </div>
+            </div>
+        </div>
         
         <div class="difficulty-selector">
-            <label for="difficulty">Choose Difficulty:</label>
-            <select id="difficulty">
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty" disabled>
                 <option value="easy">Easy</option>
                 <option value="medium" selected>Medium</option>
                 <option value="hard">Hard</option>
@@ -21,49 +41,86 @@
         
         <div class="scoreboard">
             <div class="score">
-                <h2>👤 Player</h2>
+                <h2>👤 Player 1</h2>
                 <p id="playerScore">0</p>
+                <p class="best-score" id="bestScore1">Best: 0</p>
             </div>
             <div class="center-info">
                 <p id="gameStatus">Press Start to Play</p>
+                <p id="gameMode" class="mode-label">Single Player</p>
             </div>
             <div class="score">
-                <h2>🤖 Computer</h2>
+                <h2id="player2Label">🤖 Computer</h2>
                 <p id="computerScore">0</p>
+                <p class="best-score" id="bestScore2">Best: 0</p>
+            </div>
+        </div>
+        
+        <div class="stats-display">
+            <div class="stat-item">
+                <span class="stat-label">Rally:</span>
+                <span class="stat-value" id="rallyCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Longest:</span>
+                <span class="stat-value" id="longestRally">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Speed:</span>
+                <span class="stat-value" id="ballSpeed">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Games:</span>
+                <span class="stat-value" id="totalGames">0</span>
             </div>
         </div>
         
         <canvas id="pongCanvas" width="800" height="400"></canvas>
         
         <div class="powerups-display">
-            <h3>Active Power-ups:</h3>
+            <h3>🎁 Active Power-ups:</h3>
             <p id="powerupsText">None</p>
         </div>
         
+        <div class="achievements-display">
+            <h3>🏆 Achievements</h3>
+            <div id="achievementsList" class="achievements-list"></div>
+        </div>
+        
         <div class="controls">
-            <p>🖱️ <strong>Mouse</strong> or ⬆️⬇️ <strong>Arrow Keys (Up/Down)</strong> to control the left paddle</p>
-            <p>🤖 Computer controls the right paddle</p>
+            <p id="controlsInfo">🖱️ <strong>Mouse</strong> or ⬆️⬇️ <strong>Arrow Keys (Up/Down)</strong> to control the left paddle</p>
+            <p id="computerInfo">🤖 Computer controls the right paddle</p>
             <div class="button-group">
                 <button id="startBtn" class="start-btn">▶️ Start Game</button>
                 <button id="pauseBtn" class="pause-btn">⏸️ Pause</button>
                 <button id="resetBtn" class="reset-btn">🔄 Reset Score</button>
             </div>
-            <div class="sound-control">
-                <label>
-                    <input type="checkbox" id="soundToggle" checked>
-                    🔊 Sound Effects
-                </label>
+            <div class="control-toggles">
+                <div class="sound-control">
+                    <label>
+                        <input type="checkbox" id="soundToggle" checked>
+                        🔊 Sound Effects
+                    </label>
+                </div>
+                <div class="music-control">
+                    <label>
+                        <input type="checkbox" id="musicToggle" checked>
+                        🎵 Background Music
+                    </label>
+                </div>
             </div>
         </div>
         
         <div class="info-section">
             <h3>📋 How to Play:</h3>
             <ul>
-                <li>Control your paddle (left side) with mouse or arrow keys</li>
+                <li>Control your paddle with mouse or arrow keys</li>
                 <li>Keep the ball from going past your paddle</li>
                 <li>Score when the ball passes the opponent's paddle</li>
-                <li>Catch power-ups that appear randomly on screen!</li>
-                <li>Change difficulty before starting the game</li>
+                <li>Catch random power-ups for special abilities!</li>
+                <li>Unlock achievements by reaching milestones</li>
+                <li>Try different themes and difficulties</li>
+                <li>Play solo against AI or with a friend</li>
             </ul>
         </div>
     </div>
