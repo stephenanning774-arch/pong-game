@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Pong Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 PONG GAME</h1>
+        
+        <div class="difficulty-selector">
+            <label for="difficulty">Choose Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        
+        <div class="scoreboard">
+            <div class="score">
+                <h2>👤 Player</h2>
+                <p id="playerScore">0</p>
+            </div>
+            <div class="center-info">
+                <p id="gameStatus">Press Start to Play</p>
+            </div>
+            <div class="score">
+                <h2>🤖 Computer</h2>
+                <p id="computerScore">0</p>
+            </div>
+        </div>
+        
+        <canvas id="pongCanvas" width="800" height="400"></canvas>
+        
+        <div class="powerups-display">
+            <h3>Active Power-ups:</h3>
+            <p id="powerupsText">None</p>
+        </div>
+        
+        <div class="controls">
+            <p>🖱️ <strong>Mouse</strong> or ⬆️⬇️ <strong>Arrow Keys (Up/Down)</strong> to control the left paddle</p>
+            <p>🤖 Computer controls the right paddle</p>
+            <div class="button-group">
+                <button id="startBtn" class="start-btn">▶️ Start Game</button>
+                <button id="pauseBtn" class="pause-btn">⏸️ Pause</button>
+                <button id="resetBtn" class="reset-btn">🔄 Reset Score</button>
+            </div>
+            <div class="sound-control">
+                <label>
+                    <input type="checkbox" id="soundToggle" checked>
+                    🔊 Sound Effects
+                </label>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>📋 How to Play:</h3>
+            <ul>
+                <li>Control your paddle (left side) with mouse or arrow keys</li>
+                <li>Keep the ball from going past your paddle</li>
+                <li>Score when the ball passes the opponent's paddle</li>
+                <li>Catch power-ups that appear randomly on screen!</li>
+                <li>Change difficulty before starting the game</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
